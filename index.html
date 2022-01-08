@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,45 +8,86 @@
     <link rel="stylesheet" href="style.css">
     <title>Two Player Shooter</title>
 </head>
+
 <body>
     <div class="wrapper">
+
+    <!-- Game container -->
         <div class="game_container">
-            <div class="game_menu" id="menu">
-               <p>Dodge and avenge</p> 
-               <small>the ultimate two player dodge and shoot experience.</small>
-               <span class="game_menu_guide" onclick="showInfo()">Click here before starting to read a detailed guide</span>
+            <!-- Health Bar -->
+            <div class="health_bar disable_menu">
+                <div class="player_one_health_container">
+                    <span class="player_health_label">Player - 1</span>
+                    <div class="player_one_health"></div>
+                </div>
+                <div class="player_two_health_container">
+                    <span class="player_health_label ">Player - 2</span>
+                    <div class="player_two_health"></div>
+                </div>
             </div>
+            <!-- Main menu -->
+            <div class="game_menu" id="menu">
+                <p>Dodge and avenge</p>
+                <small>the ultimate two player dodge and shoot experience.</small>
+                <span class="game_menu_guide" onclick="showInfo()">Click here before starting to read a detailed
+                    guide</span>
+            </div>
+            <!-- Info Menu that displays on click -->
+            <div class="game_info disable_menu" id="info">
+                <div class="game_info_heading">
+                    <h1>Welcome to Dodge and Avenge : Guide</h1>
+                    <div onclick="closeInfo()">Close</div>
+                </div>
+            </div>
+            <!-- Game container sky -->
             <div class="game_sky">
-                <div id="background-wrap">
+                <div id="background-wrap disable_menu">
                     <div class="x1">
                         <div class="cloud"></div>
                     </div>
-                
+
                     <div class="x2">
                         <div class="cloud"></div>
                     </div>
-                
+
                     <div class="x3">
                         <div class="cloud"></div>
                     </div>
-                
+
                     <div class="x4">
                         <div class="cloud"></div>
                     </div>
-                
+
                     <div class="x5">
                         <div class="cloud"></div>
                     </div>
                 </div>
             </div>
+            <!-- Game container grass where actions take place  -->
             <div class="game_grass">
+                <div class="player_one disable_menu">
+                    <div class="player_face one">
+                        
+                    </div>
+                    <div class="player_weapon one">
 
+                    </div>
+                </div>
+                <div class="player_two disable_menu">
+                    <div class="player_face two">
+
+                    </div>
+                    <div class="player_weapon two">
+
+                    </div>
+                </div>
             </div>
         </div>
+        <!-- The buttons for controlling the game -->
         <div class="game_buttons">
             <div class="game_buttons_controls">
-                    <button class="start_button" id="start" onclick="startNewGame()">Start new game</button>
-                    <button class="quit_button">Quit</button>
+                <button class="start_button" id="start" onclick="startNewGame()">Start new game</button>
+                <button class="quit_button" onclick="quitGame()" id="quit">Quit game</button>
             </div>
             <div class="game_buttons_stats">
                 <p class="player_stats">
@@ -61,4 +103,5 @@
     </div>
 </body>
 <script src="script.js"></script>
+
 </html>

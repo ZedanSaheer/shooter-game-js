@@ -28,6 +28,53 @@ body{
     position: relative;
 }
 
+.health_bar{
+    width: 90%;
+    height: 20px;
+    position: absolute;
+    top: 5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.player_health_label{
+    position: absolute;
+    top: -20px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: bolder;
+    letter-spacing: 10px;
+}
+
+.player_one_health_container{
+    height: 100%;
+    flex:1;
+    background: rgb(175, 0, 0);
+    margin: 0 40px;
+    position: relative;
+}
+.player_one_health{
+    width: 100%;
+    height: 100%;
+    background: green;
+}
+.player_two_health_container{
+    height: 100%;
+    flex:1;
+    background: rgb(175, 0, 0);
+    margin: 0 40px;
+    position: relative;
+}
+.player_two_health{
+    width: 100%;
+    height: 100%;
+    background: green;
+}
+
 .game_menu{
     display: flex;
     flex-direction: column;
@@ -43,7 +90,7 @@ body{
 }
 
 .disable_menu{
-    display: none;
+    display: none !important;
 }
 
 .game_menu > p {
@@ -214,6 +261,87 @@ body{
     flex: 1;
     background-color: green;
     border-radius: 0 0 5px 5px;
+    position: relative;
+}
+
+.player_one{
+    width: 50px;
+    height: 80px;
+    background: black;
+    position: absolute;
+    top: -80px;
+    left: 20px;
+}
+
+.player_two{
+    width: 50px;
+    height: 80px;
+    background: black;
+    position: absolute;
+    top: -80px;
+    right: 20px;
+    transform: rotateY(180deg)
+}
+
+.one{
+    background: red;
+}
+.two{
+    background: blue;
+}
+
+.player_face{
+    width: 30px;
+    position: relative;
+    height: 30px;
+    top: -20px;
+    left: 10px;
+    border-radius: 50%;
+}
+
+.player_weapon{
+    width: 60px;
+    height: 10px;
+}
+
+.game_info{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        height: 80%;
+        width: 80%;
+        padding: 2rem;
+        background: black;
+        position: absolute;
+        border-radius: 10px;
+        border: 10px solid rgb(45, 44, 121);
+        top: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 6;
+}
+
+.game_info_heading{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+
+.game_info_heading > h1 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: white;
+}
+
+.game_info_heading > div {
+    text-transform: uppercase;
+    cursor: pointer;
+    color: red;
+    text-align: center;
+    font-size: 0.8rem;
+    text-decoration: underline;
 }
 
 .game_buttons{
