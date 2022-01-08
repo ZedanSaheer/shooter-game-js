@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Two Player Shooter</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="game_container">
+            <div class="game_menu" id="menu">
+               <p>Dodge and avenge</p> 
+               <small>the ultimate two player dodge and shoot experience.</small>
+               <span class="game_menu_guide" onclick="showInfo()">Click here before starting to read a detailed guide</span>
+            </div>
+            <div class="game_sky">
+                <div id="background-wrap">
+                    <div class="x1">
+                        <div class="cloud"></div>
+                    </div>
+                
+                    <div class="x2">
+                        <div class="cloud"></div>
+                    </div>
+                
+                    <div class="x3">
+                        <div class="cloud"></div>
+                    </div>
+                
+                    <div class="x4">
+                        <div class="cloud"></div>
+                    </div>
+                
+                    <div class="x5">
+                        <div class="cloud"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="game_grass">
+
+            </div>
+        </div>
+        <div class="game_buttons">
+            <div class="game_buttons_controls">
+                    <button class="start_button" id="start" onclick="startNewGame()">Start new game</button>
+                    <button class="quit_button">Quit</button>
+            </div>
+            <div class="game_buttons_stats">
+                <p class="player_stats">
+                    <span>PLAYER - 1 : </span>
+                    <b class="points_one">0</b>
+                </p>
+                <p class="player_stats">
+                    <span>PLAYER - 2 : </span>
+                    <b class="points_two">0</b>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
