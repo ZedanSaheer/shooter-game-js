@@ -273,6 +273,22 @@ body{
     left: 20px;
 }
 
+.jump{
+    animation: jump 1s;
+}
+
+@keyframes jump {
+    0%{
+        transform: translateY(0%);
+    }
+    50%{
+        transform: translateY(-150%);
+    }
+    100%{
+        transform: translateY(0%);
+    }
+}
+
 .player_two{
     width: 50px;
     height: 80px;
@@ -280,7 +296,11 @@ body{
     position: absolute;
     top: -80px;
     right: 20px;
-    transform: rotateY(180deg)
+}
+
+.player_two > .player_weapon {
+    position: absolute !important;
+    left: -10px;
 }
 
 .one{
@@ -320,11 +340,13 @@ body{
         left: 50%;
         transform: translateX(-50%);
         z-index: 6;
+        overflow-y: scroll;
 }
 .game_info > b{
     color: red;
     font-size: 0.8rem;
     margin-top: 1rem;
+    width: 100%;
 }
 
 .game_info_heading{

@@ -46,3 +46,14 @@ const quitGame = () => {
 } 
 
 //Game movement and action functions
+
+const jumpOnKeyDown = (e) => {
+   if(e.key==="w"){
+       playerOne.classList.toggle("jump");
+   }
+   if(e.key==="ArrowUp"){
+       playerTwo.classList.toggle("jump");
+   }
+}
+
+document.addEventListener("keydown",jumpOnKeyDown);
