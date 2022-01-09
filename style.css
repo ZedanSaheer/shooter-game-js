@@ -4,10 +4,10 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: poppins , sans-serif;
+    font-family: poppins, sans-serif;
 }
 
-body{
+body {
     background-color: black;
 }
 
@@ -19,7 +19,7 @@ body{
     padding: 20px;
 }
 
-.game_container{
+.game_container {
     margin: 10px 0;
     width: 100%;
     flex: 3;
@@ -28,7 +28,7 @@ body{
     position: relative;
 }
 
-.health_bar{
+.health_bar {
     width: 90%;
     height: 20px;
     position: absolute;
@@ -41,41 +41,56 @@ body{
     align-items: center;
 }
 
-.player_health_label{
+.player_health_label {
     position: absolute;
     top: -20px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.health_percent{
+    color: white;
+    font-weight: bolder;
+    font-family: monospace;
+}
+
+.player_health_label :first-child{
     text-transform: uppercase;
     font-size: 0.8rem;
     font-weight: bolder;
     letter-spacing: 10px;
 }
 
-.player_one_health_container{
+.player_one_health_container {
     height: 100%;
-    flex:1;
+    flex: 1;
     background: rgb(175, 0, 0);
     margin: 0 40px;
     position: relative;
 }
-.player_one_health{
-    width: 100%;
-    height: 100%;
-    background: green;
-}
-.player_two_health_container{
-    height: 100%;
-    flex:1;
-    background: rgb(175, 0, 0);
-    margin: 0 40px;
-    position: relative;
-}
-.player_two_health{
+
+.player_one_health {
     width: 100%;
     height: 100%;
     background: green;
 }
 
-.game_menu{
+.player_two_health_container {
+    height: 100%;
+    flex: 1;
+    background: rgb(175, 0, 0);
+    margin: 0 40px;
+    position: relative;
+}
+
+.player_two_health {
+    width: 100%;
+    height: 100%;
+    background: green;
+}
+
+.game_menu {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -89,24 +104,24 @@ body{
     z-index: 2;
 }
 
-.disable_menu{
+.disable_menu {
     display: none !important;
 }
 
-.game_menu > p {
+.game_menu>p {
     color: white;
     font-size: 2rem;
     letter-spacing: 5px;
     text-transform: uppercase;
 }
 
-.game_menu > small {
+.game_menu>small {
     text-transform: lowercase;
     font-family: monospace;
     color: lightgray;
 }
 
-.game_menu > span{
+.game_menu>span {
     font-size: 0.8rem;
     margin-top: 20px;
     color: red;
@@ -115,7 +130,7 @@ body{
     cursor: pointer;
 }
 
-.game_sky{
+.game_sky {
     flex: 4;
     background-color: skyblue;
     overflow: hidden;
@@ -128,6 +143,7 @@ body{
     0% {
         margin-left: -1000px;
     }
+
     100% {
         margin-left: 100%;
     }
@@ -137,6 +153,7 @@ body{
     0% {
         margin-left: -1000px;
     }
+
     100% {
         margin-left: 100%;
     }
@@ -146,6 +163,7 @@ body{
     0% {
         margin-left: -1000px;
     }
+
     100% {
         margin-left: 100%;
     }
@@ -154,117 +172,117 @@ body{
 /* ANIMATIONS */
 
 .x1 {
-	-webkit-animation: animateCloud 35s linear infinite;
-	-moz-animation: animateCloud 35s linear infinite;
-	animation: animateCloud 35s linear infinite;
-	
-	-webkit-transform: scale(0.65);
-	-moz-transform: scale(0.65);
-	transform: scale(0.65);
+    -webkit-animation: animateCloud 35s linear infinite;
+    -moz-animation: animateCloud 35s linear infinite;
+    animation: animateCloud 35s linear infinite;
+
+    -webkit-transform: scale(0.65);
+    -moz-transform: scale(0.65);
+    transform: scale(0.65);
 }
 
 .x2 {
-	-webkit-animation: animateCloud 20s linear infinite;
-	-moz-animation: animateCloud 20s linear infinite;
-	animation: animateCloud 20s linear infinite;
-	
-	-webkit-transform: scale(0.3);
-	-moz-transform: scale(0.3);
-	transform: scale(0.3);
+    -webkit-animation: animateCloud 20s linear infinite;
+    -moz-animation: animateCloud 20s linear infinite;
+    animation: animateCloud 20s linear infinite;
+
+    -webkit-transform: scale(0.3);
+    -moz-transform: scale(0.3);
+    transform: scale(0.3);
 }
 
 .x3 {
-	-webkit-animation: animateCloud 30s linear infinite;
-	-moz-animation: animateCloud 30s linear infinite;
-	animation: animateCloud 30s linear infinite;
-	
-	-webkit-transform: scale(0.5);
-	-moz-transform: scale(0.5);
-	transform: scale(0.5);
+    -webkit-animation: animateCloud 30s linear infinite;
+    -moz-animation: animateCloud 30s linear infinite;
+    animation: animateCloud 30s linear infinite;
+
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    transform: scale(0.5);
 }
 
 .x4 {
-	-webkit-animation: animateCloud 18s linear infinite;
-	-moz-animation: animateCloud 18s linear infinite;
-	animation: animateCloud 18s linear infinite;
-	
-	-webkit-transform: scale(0.4);
-	-moz-transform: scale(0.4);
-	transform: scale(0.4);
+    -webkit-animation: animateCloud 18s linear infinite;
+    -moz-animation: animateCloud 18s linear infinite;
+    animation: animateCloud 18s linear infinite;
+
+    -webkit-transform: scale(0.4);
+    -moz-transform: scale(0.4);
+    transform: scale(0.4);
 }
 
 .x5 {
-	-webkit-animation: animateCloud 25s linear infinite;
-	-moz-animation: animateCloud 25s linear infinite;
-	animation: animateCloud 25s linear infinite;
-	
-	-webkit-transform: scale(0.55);
-	-moz-transform: scale(0.55);
-	transform: scale(0.55);
+    -webkit-animation: animateCloud 25s linear infinite;
+    -moz-animation: animateCloud 25s linear infinite;
+    animation: animateCloud 25s linear infinite;
+
+    -webkit-transform: scale(0.55);
+    -moz-transform: scale(0.55);
+    transform: scale(0.55);
 }
 
 /* OBJECTS */
 
 .cloud {
-	background: #fff;
-	background: -moz-linear-gradient(top,  #fff 5%, #f1f1f1 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(5%,#fff), color-stop(100%,#f1f1f1));
-	background: -webkit-linear-gradient(top,  #fff 5%,#f1f1f1 100%);
-	background: -o-linear-gradient(top,  #fff 5%,#f1f1f1 100%);
-	background: -ms-linear-gradient(top,  #fff 5%,#f1f1f1 100%);
-	background: linear-gradient(top,  #fff 5%,#f1f1f1 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff', endColorstr='#f1f1f1',GradientType=0 );
-	
-	-webkit-border-radius: 100px;
-	-moz-border-radius: 100px;
-	border-radius: 100px;
-	
-	-webkit-box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
-	-moz-box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
-	box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    background: -moz-linear-gradient(top, #fff 5%, #f1f1f1 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #fff), color-stop(100%, #f1f1f1));
+    background: -webkit-linear-gradient(top, #fff 5%, #f1f1f1 100%);
+    background: -o-linear-gradient(top, #fff 5%, #f1f1f1 100%);
+    background: -ms-linear-gradient(top, #fff 5%, #f1f1f1 100%);
+    background: linear-gradient(top, #fff 5%, #f1f1f1 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff', endColorstr='#f1f1f1', GradientType=0);
 
-	height: 120px;
-	position: relative;
-	width: 350px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+
+    -webkit-box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
+
+    height: 120px;
+    position: relative;
+    width: 350px;
 }
 
 .cloud:after, .cloud:before {
     background: #fff;
-	content: '';
-	position: absolute;
-	z-indeX: -1;
+    content: '';
+    position: absolute;
+    z-indeX: -1;
 }
 
 .cloud:after {
-	-webkit-border-radius: 100px;
-	-moz-border-radius: 100px;
-	border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
 
-	height: 100px;
-	left: 50px;
-	top: -50px;
-	width: 100px;
+    height: 100px;
+    left: 50px;
+    top: -50px;
+    width: 100px;
 }
 
 .cloud:before {
-	-webkit-border-radius: 200px;
-	-moz-border-radius: 200px;
-	border-radius: 200px;
+    -webkit-border-radius: 200px;
+    -moz-border-radius: 200px;
+    border-radius: 200px;
 
-	width: 180px;
-	height: 180px;
-	right: 50px;
-	top: -90px;
+    width: 180px;
+    height: 180px;
+    right: 50px;
+    top: -90px;
 }
 
-.game_grass{
+.game_grass {
     flex: 1;
     background-color: green;
     border-radius: 0 0 5px 5px;
     position: relative;
 }
 
-.player_one{
+.player_one {
     width: 50px;
     height: 80px;
     background: black;
@@ -273,23 +291,77 @@ body{
     left: 20px;
 }
 
-.jump{
+.jump {
     animation: jump 1s;
 }
 
+.bullet_container_player_one {
+    position: relative;
+}
+
+.bullet_player_one {
+    position: absolute;
+    width: 20px;
+    height: 10px;
+    background: yellow;
+    left: 60px;
+   
+}
+
+.bullet_container_player_two {
+    position: relative;
+}
+
+.bullet_player_two {
+    position: absolute;
+    width: 20px;
+    height: 10px;
+    background: yellow;
+    right: 60px;
+}
+
+.player_one_shoot{
+    animation: shoot_right 1s;
+}
+
+.player_two_shoot{
+    animation: shoot_left 1s;
+}
+
+@keyframes shoot_right {
+    0% {
+        left: 60px;
+    }
+    100% {
+        left: 740px;
+    }
+}
+
+@keyframes shoot_left {
+    0% {
+        right: 60px;
+    }
+    100% {
+        right: 740px;
+    }
+}
+
+
 @keyframes jump {
-    0%{
+    0% {
         transform: translateY(0%);
     }
-    50%{
-        transform: translateY(-150%);
+
+    50% {
+        transform: translateY(-200%);
     }
-    100%{
+
+    100% {
         transform: translateY(0%);
     }
 }
 
-.player_two{
+.player_two {
     width: 50px;
     height: 80px;
     background: black;
@@ -298,19 +370,20 @@ body{
     right: 20px;
 }
 
-.player_two > .player_weapon {
+.player_two>.player_weapon {
     position: absolute !important;
     left: -10px;
 }
 
-.one{
+.one {
     background: red;
 }
-.two{
+
+.two {
     background: blue;
 }
 
-.player_face{
+.player_face {
     width: 30px;
     position: relative;
     height: 30px;
@@ -319,37 +392,38 @@ body{
     border-radius: 50%;
 }
 
-.player_weapon{
+.player_weapon {
     width: 60px;
     height: 10px;
 }
 
-.game_info{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        height: 80%;
-        width: 80%;
-        padding: 2rem;
-        background: black;
-        position: absolute;
-        border-radius: 10px;
-        border: 10px solid rgb(45, 44, 121);
-        top: 40px;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 6;
-        overflow-y: scroll;
+.game_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 80%;
+    width: 80%;
+    padding: 2rem;
+    background: black;
+    position: absolute;
+    border-radius: 10px;
+    border: 10px solid rgb(45, 44, 121);
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 6;
+    overflow-y: scroll;
 }
-.game_info > b{
+
+.game_info>b {
     color: red;
     font-size: 0.8rem;
     margin-top: 1rem;
     width: 100%;
 }
 
-.game_info_heading{
+.game_info_heading {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -357,13 +431,13 @@ body{
     margin-bottom: 1rem;
 }
 
-.game_info_heading > h1 {
+.game_info_heading>h1 {
     font-size: 1rem;
     text-transform: uppercase;
     color: white;
 }
 
-.game_info_heading > div {
+.game_info_heading>div {
     text-transform: uppercase;
     cursor: pointer;
     color: red;
@@ -378,32 +452,36 @@ body{
     font-size: 0.6rem;
     text-transform: capitalize;
 }
-.game_info_basics > p {
+
+.game_info_basics>p {
     line-height: 3vh;
     overflow: auto;
 }
 
-.game_buttons{
-    flex:1;
+.game_buttons {
+    flex: 1;
     border: 2px solid rgb(45, 44, 121);
     display: flex;
     border-radius: 5px;
 }
-.game_buttons_stats{
+
+.game_buttons_stats {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
 }
-.game_buttons_controls{
+
+.game_buttons_controls {
     flex: 1;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
 }
-button{
+
+button {
     border: none;
     background: rgb(45, 44, 121);
     color: white;
@@ -411,26 +489,25 @@ button{
     border-radius: 5px;
 }
 
-.start_button{
+.start_button {
     padding: 1rem;
 }
 
-.quit_button{
+.quit_button {
     display: none;
     padding: 1rem;
 }
 
-button:hover{
+button:hover {
     background: rgb(69, 67, 156);
 }
 
-.player_stats{
+.player_stats {
     font-size: 1.5rem;
     color: rgb(69, 67, 156);
 }
 
-.player_stats > b{
+.player_stats>b {
     margin-left: 10px;
     color: white;
 }
-

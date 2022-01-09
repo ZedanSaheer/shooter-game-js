@@ -12,16 +12,16 @@
 <body>
     <div class="wrapper">
 
-    <!-- Game container -->
+        <!-- Game container -->
         <div class="game_container">
             <!-- Health Bar -->
             <div class="health_bar disable_menu" id="health">
                 <div class="player_one_health_container">
-                    <span class="player_health_label">Player - 1</span>
+                    <div class="player_health_label"><span>Player - 1</span><span class="health_percent" id="health">100%</span></div>
                     <div class="player_one_health"></div>
                 </div>
                 <div class="player_two_health_container">
-                    <span class="player_health_label ">Player - 2</span>
+                    <div class="player_health_label "><span>Player - 2</span><span class="health_percent" id="health">100%</span></div>
                     <div class="player_two_health"></div>
                 </div>
             </div>
@@ -39,10 +39,19 @@
                     <div onclick="closeInfo()">Close</div>
                 </div>
                 <div class="game_info_basics">
-                    <p>This is a 1v1 two player shooter with basically two simple actions : <br> - Jump and dodge incoming damage. <br> - Shoot some damage from a range of 1-5 to the opponent. <br><small>(The higher damages take time to restore after each shot)</small> </p>
+                    <p>This is a 1v1 two player shooter with basically two simple actions : <br> - Jump and dodge
+                        incoming damage. <br> - Shoot some damage from a range of 1-5 to the opponent. <br><small>(The
+                            higher damages take time to restore after each shot)</small> </p>
                 </div>
                 <div class="game_info_basics">
-                    <p>The key mapping is very simple. <br> <b>Player one</b> can use keyboard based keys where : <br> - "W" is for dodging / jumping.<br> - "A" for decreasing the range of damage <br> - "D" is for increasing the range of damage. <br> - "Space" for shooting the damage to the opponent <br> <b>Player two</b> can use keyboard based keys where : <br> - "Up Arrow" is for dodging / jumping.<br> - "Left Arrow" for decreasing the range of damage <br> - "Right Arrow" is for increasing the range of damage. <br> - "Left Mouse Click" for shooting the damage to the opponent </p>
+                    <p>The key mapping is very simple. <br> <b>Player one</b> can use keyboard based keys where : <br> -
+                        "W" is for dodging / jumping.<br> - "A" for decreasing the range of damage <br> - "D" is for
+                        increasing the range of damage. <br> - "Space" for shooting the damage to the opponent <br>
+                        <b>Player two</b> can use keyboard based keys where : <br> - "Up Arrow" is for dodging /
+                        jumping.<br> - "Left Arrow" for decreasing the range of damage <br> - "Right Arrow" is for
+                        increasing the range of damage. <br> - "Left Mouse Click" for shooting the damage to the
+                        opponent
+                    </p>
                 </div>
                 <b>THIS GAME IS NOT MOBILE RESPONSIVE AND IS ONLY IN IT'S BETA STAGE</b>
             </div>
@@ -74,18 +83,20 @@
             <div class="game_grass">
                 <div class="player_one disable_menu" id="one">
                     <div class="player_face one">
-                        
                     </div>
                     <div class="player_weapon one">
-
+                        <div class="bullet_container_player_one">
+                            <div class="bullet_player_one" id="bullet_one"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="player_two disable_menu" id="two">
                     <div class="player_face two">
-
                     </div>
                     <div class="player_weapon two">
-
+                        <div class="bullet_container_player_two">
+                            <div class="bullet_player_two" id="bullet_two"></div>
+                        </div>
                     </div>
                 </div>
             </div>
