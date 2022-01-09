@@ -17,12 +17,18 @@
             <!-- Health Bar -->
             <div class="health_bar disable_menu" id="health">
                 <div class="player_one_health_container">
-                    <div class="player_health_label"><span>Player - 1</span><span class="health_percent" id="health">100%</span></div>
-                    <div class="player_one_health"></div>
+                    <div class="player_health_label"><span>Player - 1</span><span class="health_percent" id="health_player_one">100%</span></div>
+                    <div class="player_one_health" id="bar_player_one"></div>
+                    <div class="damage_bar">
+                        <span>Damage :</span> <span class="damage" id="damage_one">1</span>
+                    </div>
                 </div>
                 <div class="player_two_health_container">
-                    <div class="player_health_label "><span>Player - 2</span><span class="health_percent" id="health">100%</span></div>
-                    <div class="player_two_health"></div>
+                    <div class="player_health_label "><span>Player - 2</span><span class="health_percent" id="health_player_two">100%</span></div>
+                    <div class="player_two_health" id="bar_player_two"></div>
+                    <div class="damage_bar">
+                        <span>Damage :</span> <span class="damage" id="damage_two">1</span>
+                    </div>
                 </div>
             </div>
             <!-- Main menu -->
@@ -46,10 +52,10 @@
                 <div class="game_info_basics">
                     <p>The key mapping is very simple. <br> <b>Player one</b> can use keyboard based keys where : <br> -
                         "W" is for dodging / jumping.<br> - "A" for decreasing the range of damage <br> - "D" is for
-                        increasing the range of damage. <br> - "Space" for shooting the damage to the opponent <br>
+                        increasing the range of damage. <br> - "S" for shooting the damage to the opponent <br>
                         <b>Player two</b> can use keyboard based keys where : <br> - "Up Arrow" is for dodging /
                         jumping.<br> - "Left Arrow" for decreasing the range of damage <br> - "Right Arrow" is for
-                        increasing the range of damage. <br> - "Left Mouse Click" for shooting the damage to the
+                        increasing the range of damage. <br> - "Down Arrow" for shooting the damage to the
                         opponent
                     </p>
                 </div>
@@ -80,7 +86,7 @@
                 </div>
             </div>
             <!-- Game container grass where actions take place  -->
-            <div class="game_grass">
+            <div class="game_grass" id="grass">
                 <div class="player_one disable_menu" id="one">
                     <div class="player_face one">
                     </div>

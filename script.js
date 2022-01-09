@@ -9,6 +9,12 @@ const playerOneScore = document.getElementById("playerOneScore");
 const playerTwoScore = document.getElementById("playerTwoScore");
 const bulletOne = document.getElementById("bullet_one");
 const bulletTwo = document.getElementById("bullet_two");
+const damageOne = document.getElementById("damage_one");
+const damageTwo = document.getElementById("damage_two");
+const HealthPercentPlayerOne = document.getElementById("health_player_one");
+const BarPlayerOne = document.getElementById("bar_player_one");
+const HealthPercentPlayerTwo = document.getElementById("health_player_two");
+const BarPlayerTwo = document.getElementById("bar_player_two");
 
 
 //Game menu functions
@@ -45,15 +51,54 @@ const quitGame = () => {
         playerOneScore.innerText = 0;
         playerTwoScore.innerText = 0;
     }
+    HealthPercentPlayerOne.innerText = 100+"%";
+    BarPlayerOne.style.width=100+"%";
+    HealthPercentPlayerTwo.innerText = 100+"%";
+    BarPlayerTwo.style.width=100+"%";
 }
 
 //Game movement and action functions
 
-const shootOnClickOrSpace = async (e) => {
+let minDamagePlayerOne = 1;
+let minDamagePlayerTwo = 1;
+let maxDamagePlayerOne = 5;
+let maxDamagePlayerTwo = 5;
+let playerOneHealth = 100;
+let playerTwoHealth = 100;
+
+
+const controlDamage = (e) => {
+
+    if (e.key === "ArrowLeft") {
+        if (minDamagePlayerTwo > 1) {
+            minDamagePlayerTwo = minDamagePlayerTwo - 1;
+           
+        }
+    } else if (e.key === "ArrowRight") {
+        if (minDamagePlayerTwo < maxDamagePlayerTwo) {
+            minDamagePlayerTwo = minDamagePlayerTwo + 1;
+        }
+    }
+
+    if (e.key === "a") {
+        if (minDamagePlayerOne > 1) {
+            minDamagePlayerOne = minDamagePlayerOne - 1;
+           
+        }
+    } else if (e.key === "d") {
+        if (minDamagePlayerOne < maxDamagePlayerOne) {
+            minDamagePlayerOne = minDamagePlayerOne + 1;
+        }
+    }
+    damageOne.innerText = minDamagePlayerOne;
+    damageTwo.innerText = minDamagePlayerTwo;
+}
+
+const shootOnClickOrSpace = (e) => {
     if (e.key === "s") {
         bulletOne.classList.toggle("player_one_shoot");
     }
-    if (e.key==="ArrowDown"){
+    if (e.key === "ArrowDown") {
         bulletTwo.classList.toggle("player_two_shoot");
     }
 }
@@ -67,5 +112,24 @@ const jumpOnKeyDown = (e) => {
     }
 }
 
+const collisionDetection = (e) => {
+    if(e.key!=="w" && e.key==="ArrowDown") {
+        if(playerOneHealth > 0){
+            playerOneHealth = playerOneHealth-minDamagePlayerTwo
+        }
+    }
+    if(e.key!=="ArrowUp" && e.key==="s") {
+        if(playerOneHealth > 0){
+            playerTwoHealth = playerTwoHealth-minDamagePlayerOne
+        }
+    }
+    HealthPercentPlayerOne.innerText = playerOneHealth+"%";
+    BarPlayerOne.style.width=playerOneHealth+"%";
+    HealthPercentPlayerTwo.innerText = playerTwoHealth+"%";
+    BarPlayerTwo.style.width=playerTwoHealth+"%";
+}
+
 document.addEventListener("keydown", shootOnClickOrSpace);
+document.addEventListener("keydown", controlDamage);
 document.addEventListener("keydown", jumpOnKeyDown);
+document.addEventListener("keydown", collisionDetection);
