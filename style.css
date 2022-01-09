@@ -91,13 +91,6 @@ body {
     background: green;
 }
 
-.damage_bar{
-    margin-top: 5px;
-    text-transform: uppercase;
-    font-weight: bolder;
-    color: white;
-}
-
 .game_menu {
     display: flex;
     flex-direction: column;
