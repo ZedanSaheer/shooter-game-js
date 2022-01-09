@@ -17,6 +17,9 @@ const BarPlayerTwo = document.getElementById("bar_player_two");
 
 //Game menu functions
 
+let scoreOne = 0;
+let scoreTwo = 0;
+
 const startNewGame = () => {
     menu.classList.add("disable_menu");
     startButton.classList.add("disable_menu");
@@ -25,8 +28,8 @@ const startNewGame = () => {
     playerTwo.classList.remove("disable_menu");
     healthContainer.classList.remove("disable_menu");
     if (playerOneScore !== 0 || playerTwoScore !== 0) {
-        playerOneScore.innerText = 0;
-        playerTwoScore.innerText = 0;
+        playerOneScore.innerText = scoreOne;
+        playerTwoScore.innerText = scoreTwo;
     }
 }
 
@@ -49,18 +52,16 @@ const quitGame = () => {
         playerOneScore.innerText = 0;
         playerTwoScore.innerText = 0;
     }
-    HealthPercentPlayerOne.innerText = 100+"%";
-    BarPlayerOne.style.width=100+"%";
-    HealthPercentPlayerTwo.innerText = 100+"%";
-    BarPlayerTwo.style.width=100+"%";
+    HealthPercentPlayerOne.innerText = 100 + "%";
+    BarPlayerOne.style.width = 100 + "%";
+    HealthPercentPlayerTwo.innerText = 100 + "%";
+    BarPlayerTwo.style.width = 100 + "%";
 }
 
 //Game movement and action functions
 
-let playerOneHealth = 100;
-let playerTwoHealth = 100;
-let damageOne = Math.floor(Math.random() * 6);
-let damageTwo = Math.floor(Math.random() * 6);
+let playerOneHealth=100;
+let playerTwoHealth=100;
 
 const shootOnClickOrSpace = (e) => {
     if (e.key === "s") {
@@ -81,20 +82,50 @@ const jumpOnKeyDown = (e) => {
 }
 
 const collisionDetection = (e) => {
-    if(e.key!=="w" && e.key==="ArrowDown") {
-        if(playerOneHealth > 0){
-           playerOneHealth = playerOneHealth-damageOne;
+
+    let damageOne = Math.floor(Math.random() * 6);
+    let damageTwo = Math.floor(Math.random() * 6);
+
+    if (e.key !== "w" && e.key === "ArrowDown") {
+        if (playerOneHealth > 0) {
+            playerOneHealth = playerOneHealth - damageOne;
         }
     }
-    if(e.key!=="ArrowUp" && e.key==="s") {
-        if(playerTwoHealth > 0){
-           playerTwoHealth = playerTwoHealth-damageTwo;
+    if (e.key !== "ArrowUp" && e.key === "s") {
+        if (playerTwoHealth > 0) {
+            playerTwoHealth = playerTwoHealth - damageTwo;
         }
     }
-    HealthPercentPlayerOne.innerText = playerOneHealth+"%";
-    BarPlayerOne.style.width=playerOneHealth+"%";
-    HealthPercentPlayerTwo.innerText = playerTwoHealth+"%";
-    BarPlayerTwo.style.width=playerTwoHealth+"%";
+    if(playerOneHealth<=0){
+        HealthPercentPlayerOne.innerText = 0 + "%";
+        BarPlayerOne.style.width = 0 + "%";
+    } else {
+        HealthPercentPlayerOne.innerText = playerOneHealth + "%";
+        BarPlayerOne.style.width = playerOneHealth + "%";
+    }
+    if(playerTwoHealth<=0){
+        HealthPercentPlayerTwo.innerText = 0 + "%";
+        BarPlayerTwo.style.width = 0 + "%";
+    }else {
+        HealthPercentPlayerTwo.innerText = playerTwoHealth + "%";
+        BarPlayerTwo.style.width = playerTwoHealth + "%";
+    }
+}
+
+
+
+if (playerOneHealth === 0) {
+    playerOne.classList.add("disable_menu");
+    playerTwo.classList.add("disable_menu");
+    healthContainer.classList.add("disable_menu");
+    scoreOne = scoreOne + 1;
+    playerOneScore.innerText = scoreOne;
+} else if (playerTwoHealth === 0) {
+    playerOne.classList.add("disable_menu");
+    playerTwo.classList.add("disable_menu");
+    healthContainer.classList.add("disable_menu");
+    scoreTwo = scoreTwo + 1;
+    playerTwoScore.innerText = scoreTwo;
 }
 
 document.addEventListener("keydown", shootOnClickOrSpace);
