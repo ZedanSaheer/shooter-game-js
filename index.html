@@ -104,7 +104,7 @@
                 <button class="start_button" id="start" onclick="startNewGame()">Start new game</button>
                 <button class="quit_button" onclick="quitGame()" id="quit">Quit game</button>
             </div>
-            <div class="game_buttons_stats">
+            <div class="game_buttons_stats" id="stats">
                 <p class="player_stats">
                     <span>PLAYER - 1 : </span>
                     <b class="points_one" id="playerOneScore">0</b>
@@ -112,6 +112,16 @@
                 <p class="player_stats">
                     <span>PLAYER - 2 : </span>
                     <b class="points_two" id="playerTwoScore">0</b>
+                </p>
+            </div>
+            <div class="game_buttons_stats disable_menu" id="winner">
+                <p class="player_stats" id="winner_one">
+                    <span>PLAYER - 1 : </span>
+                    <b class="points_one" id="playerOneScore">WINS</b>
+                </p>
+                <p class="player_stats" id="winner_two">
+                    <span>PLAYER - 2 : </span>
+                    <b class="points_one" id="playerOneScore">WINS </b>
                 </p>
             </div>
         </div>

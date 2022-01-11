@@ -13,7 +13,10 @@ const healthPercentPlayerOne = document.getElementById("health_player_one");
 const barPlayerOne = document.getElementById("bar_player_one");
 const healthPercentPlayerTwo = document.getElementById("health_player_two");
 const barPlayerTwo = document.getElementById("bar_player_two");
-
+const stats = document.getElementById("stats");
+const winnerOne = document.getElementById("winner_one");
+const winnerTwo = document.getElementById("winner_two");
+const winnerMenu = document.getElementById("winner");
 
 //Game menu functions
 let scoreOne = 0;
@@ -59,7 +62,7 @@ const quitGame = () => {
 
 //Game movement and action functions
 
-let flag=false;
+let flag = false;
 let playerOneHealth = 100;
 let playerTwoHealth = 100;
 
@@ -81,7 +84,7 @@ const jumpOnKeyDown = (e) => {
     }
 }
 
-const collisionDetection = (e) => {
+const gameFunction = (e) => {
 
     let damageOne = Math.floor(Math.random() * 6);
     let damageTwo = Math.floor(Math.random() * 6);
@@ -111,26 +114,41 @@ const collisionDetection = (e) => {
         barPlayerTwo.style.width = playerTwoHealth + "%";
     }
 
-    if(healthPercentPlayerOne.innerText === 0+"%" && scoreOne < 5){
-        playerOneHealth=100;
-        playerTwoHealth=100;
-        scoreOne=scoreOne+1;
-        playerOneScore.innerText=scoreOne;
+    if (healthPercentPlayerOne.innerText === 0 + "%" && scoreOne < 5) {
+        playerOneHealth = 100;
+        playerTwoHealth = 100;
+        scoreOne = scoreOne + 1;
+        playerOneScore.innerText = scoreOne;
     }
-    if(healthPercentPlayerTwo.innerText === 0+"%" && scoreTwo < 5){
-        playerTwoHealth=100;
-        playerOneHealth=100;
-        scoreTwo=scoreTwo+1;
-        playerTwoScore.innerText=scoreTwo;
+    if (healthPercentPlayerTwo.innerText === 0 + "%" && scoreTwo < 5) {
+        playerTwoHealth = 100;
+        playerOneHealth = 100;
+        scoreTwo = scoreTwo + 1;
+        playerTwoScore.innerText = scoreTwo;
+    }
+    if (playerOneScore.innerText == 5) {
+        theWinner(playerOne,playerTwo);
+        setTimeout(location.reload(),6000);
+    } else if (playerTwoScore.innerText == 5) {
+        theWinner(playerTwo,playerOne);
+        setTimeout(()=>{location.reload()},3000);
     }
 }
 
-if(flag){
-    console.log("Done");
+const theWinner = (winner, loser) => {
+    winnerMenu.classList.remove("disable_menu");
+    stats.classList.add("disable_menu");
+    winnerOne.classList.add("disable_menu");
+    menu.classList.remove("disable_menu");
+    startButton.classList.remove("disable_menu");
+    quitButton.style.display = "none";
+    loser.classList.add("disable_menu");
+    winner.classList.add("disable_menu");
+    healthContainer.classList.add("disable_menu");
 }
 
 
 
 document.addEventListener("keydown", shootOnClickOrSpace);
 document.addEventListener("keydown", jumpOnKeyDown);
-document.addEventListener("keydown", collisionDetection);
+document.addEventListener("keydown", gameFunction);
