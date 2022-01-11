@@ -9,14 +9,13 @@ const playerOneScore = document.getElementById("playerOneScore");
 const playerTwoScore = document.getElementById("playerTwoScore");
 const bulletOne = document.getElementById("bullet_one");
 const bulletTwo = document.getElementById("bullet_two");
-const HealthPercentPlayerOne = document.getElementById("health_player_one");
-const BarPlayerOne = document.getElementById("bar_player_one");
-const HealthPercentPlayerTwo = document.getElementById("health_player_two");
-const BarPlayerTwo = document.getElementById("bar_player_two");
+const healthPercentPlayerOne = document.getElementById("health_player_one");
+const barPlayerOne = document.getElementById("bar_player_one");
+const healthPercentPlayerTwo = document.getElementById("health_player_two");
+const barPlayerTwo = document.getElementById("bar_player_two");
 
 
 //Game menu functions
-
 let scoreOne = 0;
 let scoreTwo = 0;
 
@@ -52,16 +51,17 @@ const quitGame = () => {
         playerOneScore.innerText = 0;
         playerTwoScore.innerText = 0;
     }
-    HealthPercentPlayerOne.innerText = 100 + "%";
-    BarPlayerOne.style.width = 100 + "%";
-    HealthPercentPlayerTwo.innerText = 100 + "%";
-    BarPlayerTwo.style.width = 100 + "%";
+    healthPercentPlayerOne.innerText = 100 + "%";
+    barPlayerOne.style.width = 100 + "%";
+    healthPercentPlayerTwo.innerText = 100 + "%";
+    barPlayerTwo.style.width = 100 + "%";
 }
 
 //Game movement and action functions
 
-let playerOneHealth=100;
-let playerTwoHealth=100;
+let flag=false;
+let playerOneHealth = 100;
+let playerTwoHealth = 100;
 
 const shootOnClickOrSpace = (e) => {
     if (e.key === "s") {
@@ -96,37 +96,40 @@ const collisionDetection = (e) => {
             playerTwoHealth = playerTwoHealth - damageTwo;
         }
     }
-    if(playerOneHealth<=0){
-        HealthPercentPlayerOne.innerText = 0 + "%";
-        BarPlayerOne.style.width = 0 + "%";
+    if (playerOneHealth <= 0) {
+        healthPercentPlayerOne.innerText = 0 + "%";
+        barPlayerOne.style.width = 0 + "%";
     } else {
-        HealthPercentPlayerOne.innerText = playerOneHealth + "%";
-        BarPlayerOne.style.width = playerOneHealth + "%";
+        healthPercentPlayerOne.innerText = playerOneHealth + "%";
+        barPlayerOne.style.width = playerOneHealth + "%";
     }
-    if(playerTwoHealth<=0){
-        HealthPercentPlayerTwo.innerText = 0 + "%";
-        BarPlayerTwo.style.width = 0 + "%";
-    }else {
-        HealthPercentPlayerTwo.innerText = playerTwoHealth + "%";
-        BarPlayerTwo.style.width = playerTwoHealth + "%";
+    if (playerTwoHealth <= 0) {
+        healthPercentPlayerTwo.innerText = 0 + "%";
+        barPlayerTwo.style.width = 0 + "%";
+    } else {
+        healthPercentPlayerTwo.innerText = playerTwoHealth + "%";
+        barPlayerTwo.style.width = playerTwoHealth + "%";
+    }
+
+    if(healthPercentPlayerOne.innerText === 0+"%" && scoreOne < 5){
+        playerOneHealth=100;
+        playerTwoHealth=100;
+        scoreOne=scoreOne+1;
+        playerOneScore.innerText=scoreOne;
+    }
+    if(healthPercentPlayerTwo.innerText === 0+"%" && scoreTwo < 5){
+        playerTwoHealth=100;
+        playerOneHealth=100;
+        scoreTwo=scoreTwo+1;
+        playerTwoScore.innerText=scoreTwo;
     }
 }
 
-
-
-if (playerOneHealth === 0) {
-    playerOne.classList.add("disable_menu");
-    playerTwo.classList.add("disable_menu");
-    healthContainer.classList.add("disable_menu");
-    scoreOne = scoreOne + 1;
-    playerOneScore.innerText = scoreOne;
-} else if (playerTwoHealth === 0) {
-    playerOne.classList.add("disable_menu");
-    playerTwo.classList.add("disable_menu");
-    healthContainer.classList.add("disable_menu");
-    scoreTwo = scoreTwo + 1;
-    playerTwoScore.innerText = scoreTwo;
+if(flag){
+    console.log("Done");
 }
+
+
 
 document.addEventListener("keydown", shootOnClickOrSpace);
 document.addEventListener("keydown", jumpOnKeyDown);
