@@ -128,10 +128,10 @@ const gameFunction = (e) => {
     }
     if (playerOneScore.innerText == 5) {
         theWinner(playerOne,playerTwo);
-        setTimeout(location.reload(),6000);
+        setTimeout(()=>{location.reload()},4000);
     } else if (playerTwoScore.innerText == 5) {
         theWinner(playerTwo,playerOne);
-        setTimeout(()=>{location.reload()},3000);
+        setTimeout(()=>{location.reload()},4000);
     }
 }
 
